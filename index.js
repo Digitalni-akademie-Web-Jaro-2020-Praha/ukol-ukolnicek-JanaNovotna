@@ -2,7 +2,7 @@
 
 console.log('funguju!');
 
-const tasks = ['Koupit salát', 'Poslat dopis', 'Zavolat babičce', 'Podívat se na lekci Bootstrapu'];
+let tasks = ['Zavolat na veterinu', 'Poslat dopis na MKČR', 'Zavolat babičce', 'Podívat se na lekci Bootstrapu'];
 
 const updateTasks = () => {
   const newList = document.querySelector('.todo__tasks');
@@ -12,9 +12,15 @@ const updateTasks = () => {
   };
 };
 
-
-
+const newTask = () => {
+  const newTask1 = document.getElementById('new-task');
+  if (newTask1.value != '') {
+    tasks.push(newTask1.value);
+    updateTasks()
+    newTask1.value = '';
+  }
+}
 
 const btnElm = document.querySelector('.btn-add');
-btnElm.addEventListener('click', updateTasks);
-
+btnElm.addEventListener('click', newTask);
+updateTasks();
