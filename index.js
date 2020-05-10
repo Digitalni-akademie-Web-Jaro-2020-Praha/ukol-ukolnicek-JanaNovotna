@@ -2,17 +2,19 @@
 
 console.log('funguju!');
 
-const tasks = ['Koupit salát', 'Poslat dopis', 'Zavolat babičce', 'Podívat se na lekci Bootstrapu']
+const tasks = ['Koupit salát', 'Poslat dopis', 'Zavolat babičce', 'Podívat se na lekci Bootstrapu'];
 
-const newTask = document.querySelector('.todo__tasks');
-for (let i = 0; i < tasks.length; i++) {
-  const renderUpdateTask = (item) => {
-    const taskElm = document.createElement('div');
-    taskElm.className = 'task';
-    taskElm.textContent = tasks[i];
-
-    const addNewTask = document.querySelector('.todo__tasks');
-    addNewTask.appendChild(taskElm);
+const updateTasks = () => {
+  const newList = document.querySelector('.todo__tasks');
+  newList.innerHTML = '';
+  for (let i = 0; i < tasks.length; i++) {
+    newList.innerHTML += `<div class="task">${tasks[i]}</div>`;
   };
-  renderUpdateTask(tasks[i]);
-}
+};
+
+
+
+
+const btnElm = document.querySelector('.btn-add');
+btnElm.addEventListener('click', updateTasks);
+
